@@ -12,15 +12,15 @@ const display_product = (products) => {
         div.innerHTML = `
         <img class="card-img" src="${product.image}" alt="" />
         <h5>${product.title}</h5>
-        <h3>price: ${product.price}</h3>
+        <h3>price: $${product.price}</h3>
         <p>${product.description.slice(0, 50)}</p>
-        <button onclick="singleProduct(${product.id})">Details</button>
+        <div class ="card-button"><button  onclick="singleProduct(${product.id})">Details</button>
         <button onclick="handleAddToCart('${product.title.slice(0, 12)}',${product.price
-            })">Add TO CArt</button>`;
+            })">Add To Cart</button></div>`;
 
         product_container.appendChild(div);
 
-    });
+    });  
 }
 
 let Serial = 1;
@@ -28,7 +28,7 @@ const handleAddToCart = (title, price) => {
     const cart = document.getElementsByClassName("card")[0];
     const div = document.createElement("div");
     div.classList.add("cart-box");
-    div.innerHTML = `<p>${Serial++} </p><p>${title}</p><p class="price">${price}</p> `;
+    div.innerHTML = `<p>${Serial++} </p><p>${title}</p><p class="price">$${price}</p> `;
     cart.appendChild(div);
     UpdateTotal();
 
